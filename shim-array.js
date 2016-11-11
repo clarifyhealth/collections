@@ -115,7 +115,13 @@ define("delete", function (value, equals) {
     return false;
 });
 
+var es6ArrayFind = Array.prototype.find;
 define("find", function (value, equals) {
+    if (typeof value === 'function' && !equals) {
+        // Return result of ES6 standard Array.prototype.find if the first parameter is a callback.
+        return es6ArrayFind.apply(this, [value]);
+    }
+
     equals = equals || this.contentEquals || Object.equals;
     for (var index = 0; index < this.length; index++) {
         if (index in this && equals(this[index], value)) {

@@ -61,7 +61,8 @@ function define(key, value) {
 define("addEach", GenericCollection.prototype.addEach);
 define("deleteEach", GenericCollection.prototype.deleteEach);
 define("toArray", GenericCollection.prototype.toArray);
-define("toObject", GenericCollection.prototype.toObject);
+// This causes problems for loopback-datasource-juggler/lib/dao.js  convertSubsetOfPropertiesByType()
+// define("toObject", GenericCollection.prototype.toObject);
 define("all", GenericCollection.prototype.all);
 define("any", GenericCollection.prototype.any);
 define("min", GenericCollection.prototype.min);
